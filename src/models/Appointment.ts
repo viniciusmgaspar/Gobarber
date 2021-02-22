@@ -1,4 +1,4 @@
-import { uuid } from 'uuidv4'
+import { v4 as uuid_v4 } from 'uuid'
 
 
 class Appointment {
@@ -8,8 +8,8 @@ class Appointment {
 
     date: Date;
 
-    constructor(provider: string, date: Date) {
-        this.id = uuid();
+    constructor({provider, date}: Omit<Appointment, 'id'>) {
+        this.id = uuid_v4();
 
         this.provider = provider;
 
